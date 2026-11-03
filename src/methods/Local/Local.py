@@ -40,14 +40,15 @@ class Local:
         Predict all outputs using the local HMTRFs.
         Returns shape (n_samples, n_outputs)
         """
-        all_preds = np.zeros(n_samples, n_outputs)
+        n_samples = X.shape[0]
+        n_outputs = len(self.models_)
+        all_preds = np.zeros((n_samples, n_outputs))
 
-        for i, t in enumerate(self.output_types_):
-            model = chain_models[idx]
-            pred = np.ravel(model.predict(X_ext))  # ensure 1D array
-            final_preds[:, i] = pred
-            
-        return final_preds
+        for i, model in enumerate(self.models_):
+            pred = np.ravel(model.predict(X))  # ensure 1D array
+            all_preds[:, i] = pred
+
+        return all_preds
     
     def predict_proba(self, X):
         """

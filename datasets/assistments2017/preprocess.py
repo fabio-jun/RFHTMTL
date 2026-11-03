@@ -39,7 +39,7 @@ PRE_MCAS_CUTOFFS = {
 FEATURE_COLUMNS = ("usage_year_2005_2006",) + DIRECT_FEATURE_COLUMNS + EXTRACTED_FEATURE_COLUMNS
 TARGET_COLUMNS = ("target_regression_mcas", "target_binary_enrolled")
 OUTPUT_COLUMNS = ("source_student_id",) + FEATURE_COLUMNS + TARGET_COLUMNS
-DIRECT_CHECK_COLUMNS = ("SY ASSISTments Usage") + tuple(DIRECT_FEATURE_SOURCES) + ("MCAS", "Enrolled", "Selective", "isSTEM")
+DIRECT_CHECK_COLUMNS = ("SY ASSISTments Usage",) + tuple(DIRECT_FEATURE_SOURCES) + ("MCAS", "Enrolled", "Selective", "isSTEM")
 PROBLEMTYPE_ALIASES = {
     "textfieldquestion": "textfield", "interfacetextfieldquestion": "textfield",
     "interfacetextfieldquestion1": "textfield", "radioquestion": "radio", "interfaceradioquestion": "radio",
